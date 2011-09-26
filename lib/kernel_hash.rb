@@ -8,7 +8,7 @@ module Kernel
       elsif value.nil? or Array(value).empty?
         {}
       else
-        raise ArgumentError, "invalid value for Hash: #{value}"
+        raise TypeError, "invalid value for Hash: #{value}"
       end
     end
   end
