@@ -53,4 +53,14 @@ class TestToH < Test::Unit::TestCase
     assert_equal({}, [[1, 2, 3, 4]].to_h)
     assert_equal({}, [[1, 2, 3, 4, 5]].to_h) # and so on
   end
+
+  def test_works_on_enumerables
+    assert_equal({1 => 2, 3 => 4}, (1..4).to_a.to_h)
+    assert_equal({1 => 2, 3 => 4}, (1..4).to_h)
+  end
+
+  def test_works_on_enumerators
+    assert_equal({1 => 2, 3 => 4}, (1..4).to_enum.to_a.to_h)
+    assert_equal({1 => 2, 3 => 4}, (1..4).to_enum.to_h)
+  end
 end
