@@ -1,5 +1,3 @@
-require "equal_rights_for_hash/version"
-
 module Kernel
   def Hash(value)
     value.to_h
