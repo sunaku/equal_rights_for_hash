@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name        = "equal_rights_for_hash"
-  s.version     = "0.0.2"
+  s.version     = "0.0.3"
   s.authors     = ["Suraj N. Kurapati"]
   s.email       = ["sunaku@gmail.com"]
   s.homepage    = "http://redmine.ruby-lang.org/issues/5008"
