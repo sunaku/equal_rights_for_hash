@@ -41,4 +41,16 @@ class TestToH < Test::Unit::TestCase
   def test_converts_nested_odd_array_into_hash
     assert_equal({1 => 2, 3 => nil}, [[1, 2], [3]].to_h)
   end
+
+  def test_converts_nested_array_with_one_or_two_items
+    assert_equal({1 => nil}, [[1]].to_h)
+    assert_equal({1 => 2}, [[1, 2]].to_h)
+  end
+
+  def test_ignores_nested_array_without_one_or_two_items
+    assert_equal({}, [[]].to_h) # zero items
+    assert_equal({}, [[1, 2, 3]].to_h)
+    assert_equal({}, [[1, 2, 3, 4]].to_h)
+    assert_equal({}, [[1, 2, 3, 4, 5]].to_h) # and so on
+  end
 end
