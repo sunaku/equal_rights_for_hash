@@ -26,4 +26,9 @@ class TestKernelHash < Test::Unit::TestCase
   def test_converts_empty_array_into_hash
     assert_equal({}, Hash([]))
   end
+
+  def test_raises_TypeError_on_failure
+    error = assert_raise(TypeError) { Hash("bogus") }
+    assert_equal("invalid value for Hash: bogus", error.message)
+  end
 end

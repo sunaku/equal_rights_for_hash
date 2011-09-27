@@ -1,6 +1,8 @@
 module Kernel
   def Hash(value)
     value.to_h
+  rescue
+    raise TypeError, "invalid value for Hash: #{value}"
   end
 end
 
