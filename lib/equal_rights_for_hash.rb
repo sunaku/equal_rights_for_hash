@@ -2,7 +2,7 @@ module Kernel
   def Hash(value)
     value.to_h
   rescue
-    raise TypeError, "invalid value for Hash: #{value}"
+    raise ArgumentError, "invalid value for Hash(): #{value.inspect}"
   end
 end
 
