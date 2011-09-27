@@ -1,15 +1,15 @@
 require "test/unit"
 
-require "kernel_hash"
+require "equal_rights_for_hash"
 
-class Testkernel_hash < Test::Unit::TestCase
+class TestKernelHash < Test::Unit::TestCase
   def test_converts_nil_into_hash
     assert_equal({}, Hash(nil))
   end
 
-  def test_converts_real_hash_into_hash
+  def test_converts_real_hash_into_self
     real_hash = {:real => true}
-    assert_equal(real_hash, Hash(real_hash))
+    assert_same(real_hash, Hash(real_hash))
   end
 
   def test_converts_fake_hash_into_hash
@@ -17,7 +17,10 @@ class Testkernel_hash < Test::Unit::TestCase
     def fake_hash.to_hash
       {:fake => true}
     end
+    assert_kind_of(Hash, Hash(fake_hash))
+    assert_equal({:fake => true}, Hash(fake_hash))
     assert_equal(fake_hash.to_hash, Hash(fake_hash))
+    assert_equal(fake_hash.to_h, Hash(fake_hash))
   end
 
   def test_converts_empty_array_into_hash

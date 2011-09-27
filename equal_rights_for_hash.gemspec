@@ -4,7 +4,7 @@ require "equal_rights_for_hash/version"
 
 Gem::Specification.new do |s|
   s.name        = "equal_rights_for_hash"
-  s.version     = EqualRights::VERSION
+  s.version     = EqualRightsForHash::VERSION
   s.authors     = ["Suraj N. Kurapati"]
   s.email       = ["sunaku@gmail.com"]
   s.homepage    = "http://redmine.ruby-lang.org/issues/5008"
